@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Culto Vinde — Em Memória D'Ele | 28 de Novembro de 2026</title>
+    <meta name="description" content="Convite digital oficial para o Culto Vinde — Tema: EM MEMÓRIA D'ELE. 28 de novembro de 2026 em São Paulo - SP." />
+    <meta name="theme-color" content="#0D0F12" />
+
+    <!-- Google Fonts: Cormorant Garamond, Plus Jakarta Sans & Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet" />
+
+    <!-- Folha de Estilo Principal -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="locked-scroll">
+
+    <!-- ======================================================================
+         PRIMEIRA TELA — O CONVITE FECHADO (EXPERIÊNCIA 3D DE ABERTURA)
+         ====================================================================== -->
+    <section id="envelope-stage" aria-label="Abertura do Convite Digital">
+        <div id="invitation-intro-header" class="invitation-intro-header">
+            <p class="invitation-pre-title">VOCÊ RECEBEU UM CONVITE</p>
+            <h1 class="invitation-main-title">CULTO VINDE</h1>
+        </div>
+
+        <!-- Envelope 3D Centralizado -->
+        <div class="envelope-3d-wrapper" aria-hidden="true">
+            <div id="envelope-box" class="envelope-box">
+                <!-- Fundo do Envelope -->
+                <div class="envelope-back"></div>
+
+                <!-- Cartão Interno do Convite -->
+                <div class="envelope-inner-card">
+                    <span class="inner-card-cross">✦</span>
+                    <h2 class="inner-card-title">CULTO VINDE</h2>
+                    <p class="inner-card-theme">EM MEMÓRIA D'ELE</p>
+                    <p class="inner-card-date">28 . 11 . 2026</p>
+                </div>
+
+                <!-- Dobras Laterais e Bolso Frontal -->
+                <div class="envelope-front-pocket"></div>
+                <div class="envelope-right-fold"></div>
+
+                <!-- Aba Superior Articulada (Rotaciona 180° em 3D) -->
+                <div class="envelope-flap"></div>
+
+                <!-- Selo de Cera com Monograma -->
+                <div class="envelope-wax-seal">CV</div>
+            </div>
+        </div>
+
+        <!-- Ação para Abrir o Convite -->
+        <div id="invitation-actions" class="invitation-actions">
+            <button type="button" id="btn-open-invitation" class="btn-open-invitation">
+                ABRIR CONVITE
+            </button>
+            <button type="button" id="btn-skip-intro" class="btn-skip-intro">
+                Pular animação de abertura
+            </button>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         NAVEGAÇÃO FIXA PRINCIPAL
+         ====================================================================== -->
+    <header id="site-header" class="site-header nav-hidden">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-brand">CULTO VINDE</a>
+
+            <nav aria-label="Navegação Principal">
+                <ul class="nav-links">
+                    <li><a href="#inicio" class="nav-link">Início</a></li>
+                    <li><a href="#o-culto" class="nav-link">O Culto</a></li>
+                    <li><a href="#em-memoria" class="nav-link">Em Memória</a></li>
+                    <li><a href="#data" class="nav-link">Data</a></li>
+                    <li><a href="#local" class="nav-link">Local</a></li>
+                    <li><a href="#confirmacao" class="nav-link">Confirmação</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Botão Discreto de Controle de Áudio Ambiente -->
+                <button
+                    type="button"
+                    id="btn-audio-toggle"
+                    class="btn-audio-toggle"
+                    aria-label="Ativar som ambiente"
+                    title="Som ambiente contemplativo"
+                >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                    </svg>
+                </button>
+
+                <!-- Botão Hamburger para Celular -->
+                <button
+                    type="button"
+                    id="btn-hamburger"
+                    class="btn-hamburger"
+                    aria-label="Abrir menu de navegação"
+                    aria-expanded="false"
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                        <line x1="3" y1="7" x2="21" y2="7"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="17" x2="21" y2="17"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Overlay Mobile -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay" aria-hidden="true">
+        <ul class="mobile-nav-list">
+            <li><a href="#inicio" class="mobile-nav-link">Início</a></li>
+            <li><a href="#o-culto" class="mobile-nav-link">O Culto</a></li>
+            <li><a href="#em-memoria" class="mobile-nav-link">Em Memória</a></li>
+            <li><a href="#data" class="mobile-nav-link">Data</a></li>
+            <li><a href="#local" class="mobile-nav-link">Local</a></li>
+            <li><a href="#confirmacao" class="mobile-nav-link">Confirmação</a></li>
+        </ul>
+    </div>
+
+    <!-- ======================================================================
+         CONTEÚDO PRINCIPAL DO SITE
+         ====================================================================== -->
+    <main>
+
+        <!-- 6. HERO PRINCIPAL (#inicio) -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-ornament">✦</div>
+            <h1 class="hero-event-title">CULTO VINDE</h1>
+            <h2 class="hero-theme-title">EM MEMÓRIA D'ELE</h2>
+
+            <div class="hero-date-pill">
+                28 DE NOVEMBRO DE 2026
+            </div>
+
+            <p class="hero-quote">
+                “Uma noite para lembrar, celebrar e estar em comunhão.”
+            </p>
+
+            <div class="hero-cta-group">
+                <a href="#confirmacao" class="btn-primary">
+                    CONFIRMAR PRESENÇA
+                </a>
+                <a
+                    href="https://www.google.com/maps/place/Av.+Sen.+Teot%C3%B4nio+Vilela,+6235+-+Jd+Orban,+S%C3%A3o+Paulo+-+SP,+04833-001/@-23.751281,-46.7104067,759a,90y,132.72h,91.06t/data=!3m7!1e1!3m5!1s7ErauDfyAFwZEA5j-IRC3A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.0600000000000023%26panoid%3D7ErauDfyAFwZEA5j-IRC3A%26yaw%3D132.72!7i16384!8i8192!4m7!3m6!1s0x94ce4ed8c76d1ac1:0xd85d5370c4187239!8m2!3d-23.7517139!4d-46.7104535!10e5!16s%2Fg%2F11rgf83xhh?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
+                    data-config-link="mapsUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-outline"
+                >
+                    COMO CHEGAR
+                </a>
+            </div>
+
+            <!-- 7. CONTAGEM REGRESSIVA -->
+            <div class="countdown-wrapper" aria-label="Contagem regressiva para o evento">
+                <div class="countdown-grid">
+                    <div class="countdown-item">
+                        <span id="cd-days" class="countdown-number">00</span>
+                        <span class="countdown-label">Dias</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="cd-hours" class="countdown-number">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="cd-minutes" class="countdown-number">00</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="cd-seconds" class="countdown-number">00</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 8. SEÇÃO "SOBRE O CULTO" (#o-culto) -->
+        <section id="o-culto" class="section-container reveal-on-scroll">
+            <span class="section-eyebrow">O PROPÓSITO</span>
+            <h2 class="section-heading">SOBRE O CULTO VINDE</h2>
+            <p class="section-subtitle">
+                Um convite à pausa, à reverência e ao reencontro com a essência da nossa fé.
+            </p>
+
+            <div class="pillars-grid">
+                <article class="pillar-card">
+                    <span class="pillar-icon">✦</span>
+                    <h3 class="pillar-title">Comunhão</h3>
+                    <p class="pillar-text">
+                        Reunidos ao redor da mesma mesa e da mesma graça, reconhecemos que fomos chamados a caminhar como um só corpo em amor e unidade.
+                    </p>
+                </article>
+
+                <article class="pillar-card">
+                    <span class="pillar-icon">✦</span>
+                    <h3 class="pillar-title">Reflexão & Fé</h3>
+                    <p class="pillar-text">
+                        Em meio ao ruído do tempo presente, separamos esta noite para silenciar o coração e contemplar o sacrifício que nos trouxe vida eterna.
+                    </p>
+                </article>
+
+                <article class="pillar-card">
+                    <span class="pillar-icon">✦</span>
+                    <h3 class="pillar-title">Gratidão & Presença</h3>
+                    <p class="pillar-text">
+                        Mais do que um evento, o Culto Vinde é um altar de memória viva onde cada louvor e oração expressam nossa profunda gratidão.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 9. SEÇÃO "EM MEMÓRIA D'ELE" (#em-memoria) -->
+        <section id="em-memoria" class="memoria-section">
+            <div class="section-container reveal-on-scroll">
+                <div class="memoria-spotlight-box">
+                    <span class="section-eyebrow">O TEMA CENTRAL</span>
+                    <h2 class="memoria-theme-title">EM MEMÓRIA D'ELE</h2>
+                    <p class="memoria-verse">
+                        “E, tomando o pão, e havendo dado graças, partiu-o e deu-lho, dizendo: Isto é o meu corpo, que por vós é dado; fazei isto em memória de mim.”
+                        <br />
+                        <small style="font-size: 0.85rem; letter-spacing: 0.15em; color: var(--text-secondary);">— LUCAS 22:19</small>
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btn-memoria-trigger"
+                        class="btn-memoria-trigger"
+                        aria-expanded="false"
+                    >
+                        Há algo para lembrar...
+                    </button>
+
+                    <div id="memoria-hidden-reflection" class="memoria-hidden-reflection">
+                        <p class="memoria-reflection-text">
+                            Lembrar, nas Escrituras, não é apenas recordar um fato distante no passado. É tornar presente no coração aquilo que nunca perdeu o seu valor eterno. Quando nos reunimos <strong>Em Memória D'Ele</strong>, afirmamos que a Sua cruz, o Seu amor e a Sua promessa continuam sendo o centro da nossa história e a esperança do nosso amanhã.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. DATA DO EVENTO (#data) -->
+        <section id="data" class="section-container reveal-on-scroll">
+            <span class="section-eyebrow">RESERVE ESTE DIA</span>
+            <h2 class="section-heading">A DATA DO ENCONTRO</h2>
+
+            <div class="date-monument-card">
+                <div class="date-day-number">28</div>
+                <div class="date-month-name">NOVEMBRO</div>
+                <div class="date-year-number">2 0 2 6</div>
+
+                <div id="event-time-badge" class="date-time-display">
+                    HORÁRIO OFICIAL: A DEFINIR (EM BREVE)
+                </div>
+
+                <div>
+                    <button type="button" id="btn-add-calendar" class="btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        ADICIONAR AO CALENDÁRIO (.ICS)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 11. LOCAL DO EVENTO (#local) -->
+        <section id="local" class="section-container reveal-on-scroll">
+            <span class="section-eyebrow">O ENDEREÇO</span>
+            <h2 class="section-heading">ONDE ESTAREMOS</h2>
+
+            <div class="location-card">
+                <h3 class="location-venue-name">CULTO VINDE — SÃO PAULO</h3>
+                <p class="location-address-line" data-config-text="location">
+                    Av. Sen. Teotônio Vilela, 6235 - Jd Orban
+                </p>
+                <p class="location-city-line" data-config-text="address">
+                    São Paulo - SP, 04833-001
+                </p>
+
+                <div class="location-actions">
+                    <a
+                        href="https://www.google.com/maps/place/Av.+Sen.+Teot%C3%B4nio+Vilela,+6235+-+Jd+Orban,+S%C3%A3o+Paulo+-+SP,+04833-001/@-23.751281,-46.7104067,759a,90y,132.72h,91.06t/data=!3m7!1e1!3m5!1s7ErauDfyAFwZEA5j-IRC3A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.0600000000000023%26panoid%3D7ErauDfyAFwZEA5j-IRC3A%26yaw%3D132.72!7i16384!8i8192!4m7!3m6!1s0x94ce4ed8c76d1ac1:0xd85d5370c4187239!8m2!3d-23.7517139!4d-46.7104535!10e5!16s%2Fg%2F11rgf83xhh?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
+                        data-config-link="mapsUrl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary"
+                    >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        COMO CHEGAR
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 12. CONFIRMAÇÃO DE PRESENÇA (FUNCIONAL COM NETLIFY FORMS) -->
+        <section id="confirmacao" class="section-container reveal-on-scroll">
+            <span class="section-eyebrow">LISTA DE CONVIDADOS</span>
+            <h2 class="section-heading">VOU ESTAR PRESENTE</h2>
+            <p class="section-subtitle">
+                “Será uma alegria ter você conosco.”
+            </p>
+
+            <div class="rsvp-card">
+                <!--
+                    ESTRUTURA OFICIAL DO NETLIFY FORMS
+                    Quando publicado no Netlify, as confirmações são armazenadas na aba Forms
+                    e geram notificações por e-mail configuradas no painel do Netlify.
+                -->
+                <form
+                    name="confirmacao-presenca"
+                    method="POST"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
+                    id="rsvp-form"
+                    class="rsvp-form"
+                    novalidate
+                >
+                    <!-- Campo oculto obrigatório para identificação do Netlify Forms via AJAX -->
+                    <input type="hidden" name="form-name" value="confirmacao-presenca" />
+
+                    <!-- Campo Honeypot contra spam (oculto via CSS clip acessível) -->
+                    <div class="sr-honeypot" aria-hidden="true">
+                        <label for="bot-field">Não preencha este campo se você for humano:</label>
+                        <input type="text" name="bot-field" id="bot-field" tabindex="-1" autocomplete="off" />
+                    </div>
+
+                    <!-- Nome Completo -->
+                    <div id="group-nome" class="form-group">
+                        <label for="rsvp-nome" class="form-label">Nome completo *</label>
+                        <input
+                            type="text"
+                            id="rsvp-nome"
+                            name="nome"
+                            class="form-input"
+                            placeholder="Digite seu nome e sobrenome"
+                            required
+                            autocomplete="name"
+                        />
+                        <span class="field-error-msg">Por favor, informe seu nome completo.</span>
+                    </div>
+
+                    <!-- E-mail (utilizado como Reply-To pelo Netlify) -->
+                    <div id="group-email" class="form-group">
+                        <label for="rsvp-email" class="form-label">E-mail *</label>
+                        <input
+                            type="email"
+                            id="rsvp-email"
+                            name="email"
+                            class="form-input"
+                            placeholder="seuemail@exemplo.com"
+                            required
+                            autocomplete="email"
+                        />
+                        <span class="field-error-msg">Digite um endereço de e-mail válido.</span>
+                    </div>
+
+                    <!-- Você estará presente? -->
+                    <div id="group-presenca" class="form-group">
+                        <span class="form-label">Você estará presente? *</span>
+                        <div class="attendance-radio-grid" role="radiogroup" aria-label="Você estará presente?">
+                            <label class="attendance-option-label">
+                                <input
+                                    type="radio"
+                                    name="presenca"
+                                    value="Sim, estarei presente"
+                                    class="attendance-option-input"
+                                    checked
+                                />
+                                <span class="attendance-option-card">SIM, ESTAREI PRESENTE</span>
+                            </label>
+
+                            <label class="attendance-option-label">
+                                <input
+                                    type="radio"
+                                    name="presenca"
+                                    value="Não poderei comparecer"
+                                    class="attendance-option-input"
+                                />
+                                <span class="attendance-option-card">NÃO PODEREI COMPARECER</span>
+                            </label>
+                        </div>
+                        <span class="field-error-msg">Por favor, selecione uma opção de presença.</span>
+                    </div>
+
+                    <!-- Quantidade de pessoas -->
+                    <div id="group-quantidade" class="form-group">
+                        <label for="rsvp-quantidade" class="form-label">Quantidade de pessoas *</label>
+                        <select id="rsvp-quantidade" name="quantidade" class="form-select">
+                            <option value="1 pessoa">1 pessoa</option>
+                            <option value="2 pessoas">2 pessoas</option>
+                            <option value="3 pessoas">3 pessoas</option>
+                            <option value="4 pessoas">4 pessoas</option>
+                            <option value="5 pessoas">5 pessoas</option>
+                            <option value="6 ou mais">6 ou mais</option>
+                        </select>
+                    </div>
+
+                    <!-- Mensagem Opcional -->
+                    <div class="form-group">
+                        <label for="rsvp-mensagem" class="form-label">Mensagem opcional</label>
+                        <textarea
+                            id="rsvp-mensagem"
+                            name="mensagem"
+                            rows="3"
+                            class="form-textarea"
+                            placeholder="Deixe uma mensagem ou pedido de oração para a organização (opcional)"
+                        ></textarea>
+                    </div>
+
+                    <!-- Botão de Envio -->
+                    <button type="submit" id="btn-submit-rsvp" class="btn-primary" style="width: 100%; margin-top: 0.5rem;">
+                        CONFIRMAR PRESENÇA
+                    </button>
+                </form>
+
+                <!-- Tela de Confirmação Elegante (Exibida após o envio sem recarregar a página) -->
+                <div id="rsvp-confirmation-screen" class="rsvp-confirmation-screen" aria-live="polite">
+                    <div class="confirmation-badge">✓</div>
+                    <h3 class="confirmation-title">PRESENÇA CONFIRMADA</h3>
+                    <p class="confirmation-subtitle">“Obrigado por confirmar sua presença.”</p>
+
+                    <div class="confirmation-summary-box">
+                        <p style="font-family: var(--font-serif); font-size: 1.35rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 0.3rem;">
+                            CULTO VINDE
+                        </p>
+                        <p style="font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--accent-bronze-light); margin-bottom: 0.8rem;">
+                            EM MEMÓRIA D'ELE
+                        </p>
+                        <p style="font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.18em; color: var(--text-secondary);">
+                            28 DE NOVEMBRO DE 2026 — 18:00
+                        </p>
+                        <p id="rsvp-guest-summary" style="font-size: 0.88rem; color: var(--text-primary); margin-top: 0.85rem;"></p>
+                    </div>
+
+                    <button type="button" id="btn-back-to-invite" class="btn-outline">
+                        VOLTAR AO CONVITE
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 14 & 15. COMPARTILHAMENTO E QR CODE DO CONVITE -->
+        <section class="section-container reveal-on-scroll">
+            <span class="section-eyebrow">ESPALHE A MENSAGEM</span>
+            <h2 class="section-heading">COMPARTILHAR CONVITE</h2>
+
+            <div class="share-qr-grid">
+                <div class="share-card">
+                    <h3 class="pillar-title">Convide Alguém</h3>
+                    <p class="pillar-text" style="margin-bottom: 1.75rem;">
+                        Envie este convite digital para familiares, amigos e irmãos de caminhada.
+                    </p>
+                    <button type="button" id="btn-share-invite" class="btn-primary">
+                        COMPARTILHAR CONVITE
+                    </button>
+                </div>
+
+                <div class="share-card">
+                    <h3 class="pillar-title">QR Code do Convite</h3>
+                    <div id="qr-code-svg-box" class="qr-code-container"></div>
+                    <p style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; color: var(--text-secondary);">
+                        ESCANEIE PARA ACESSAR O CONVITE DIGITAL
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Notificação Toast Flutuante -->
+    <div id="toast-notification" class="toast-notification" role="status" aria-live="polite">
+        Link copiado!
+    </div>
+
+    <!-- ======================================================================
+         RODAPÉ E EASTER EGG DISCRETO
+         ====================================================================== -->
+    <footer class="site-footer">
+        <!-- Selo Interativo (Easter Egg) -->
+        <button
+            type="button"
+            id="footer-easter-egg-seal"
+            class="footer-easter-egg-seal"
+            aria-label="Selo Em Memória D'Ele"
+            title="Clique para lembrar"
+        >
+            ✦
+        </button>
+
+        <p id="easter-egg-message" class="easter-egg-message">
+            “Algumas coisas merecem ser lembradas.” — Lucas 22:19
+        </p>
+
+        <p style="font-family: var(--font-serif); font-size: 1.2rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 0.35rem;">
+            CULTO VINDE
+        </p>
+        <p style="font-family: var(--font-serif); font-style: italic; color: var(--accent-bronze-light); font-size: 1rem; margin-bottom: 1.25rem;">
+            EM MEMÓRIA D'ELE
+        </p>
+        <p style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; color: var(--text-muted);">
+            28 DE NOVEMBRO DE 2026 • SÃO PAULO - SP
+        </p>
+    </footer>
+
+    <!-- Script Principal (Vanilla JS) -->
+    <script src="script.js"></script>
+</body>
+</html>
