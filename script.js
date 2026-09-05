@@ -9,7 +9,7 @@ const EVENT_CONFIG = {
     name: "Culto Vinde",
     theme: "EM MEMÓRIA D'ELE",
     date: "2026-11-28",
-    time: "HORARIO_A_DEFINIR", // Facilmente editável (ex: "18:00")
+   time: "18:00",
     location: "Av. Sen. Teotônio Vilela, 6235 - Jd Orban",
     address: "São Paulo - SP, 04833-001",
     mapsUrl: "https://www.google.com/maps/place/Av.+Sen.+Teot%C3%B4nio+Vilela,+6235+-+Jd+Orban,+S%C3%A3o+Paulo+-+SP,+04833-001/@-23.751281,-46.7104067,759a,90y,132.72h,91.06t/data=!3m7!1e1!3m5!1s7ErauDfyAFwZEA5j-IRC3A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.0600000000000023%26panoid%3D7ErauDfyAFwZEA5j-IRC3A%26yaw%3D132.72!7i16384!8i8192!4m7!3m6!1s0x94ce4ed8c76d1ac1:0xd85d5370c4187239!8m2!3d-23.7517139!4d-46.7104535!10e5!16s%2Fg%2F11rgf83xhh?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
@@ -354,21 +354,34 @@ function initRsvpForm() {
         const encodedData = new URLSearchParams(formData).toString();
 
         try {
-            const response = await fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: encodedData
-            });
+    const response = await fetch("/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: encodedData
+    });
 
-            // Mesmo em ambiente local de pré-visualização, exibimos a tela de sucesso elegante
-            showConfirmationSuccess(formData);
-        } catch (error) {
-            // Fallback gracioso em execução offline/arquivo local para demonstração completa
-            showConfirmationSuccess(formData);
-        } finally {
-            btnSubmit.textContent = originalBtnText;
-            btnSubmit.disabled = false;
-        }
+    if (response.ok) {
+        showConfirmationSuccess(formData);
+    } else {
+        throw new Error(`Falha no envio: ${response.status}`);
+    }
+
+} catch (error) {
+    console.error("Erro ao enviar confirmação:", error);
+
+    const errorBanner = document.getElementById("rsvp-error");
+
+    if (errorBanner) {
+        errorBanner.textContent =
+            "Não foi possível enviar sua confirmação. Verifique sua conexão e tente novamente.";
+        errorBanner.classList.remove("hidden");
+    }
+} finally {
+    btnSubmit.textContent = originalBtnText;
+    btnSubmit.disabled = false;
+}
     });
 
     function showConfirmationSuccess(formData) {
