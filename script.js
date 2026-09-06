@@ -530,7 +530,7 @@ function renderInvitationQrCode(container) {
         <rect x="78" y="100" width="12" height="6" fill="#0D0F12"/>
         <!-- Monograma Central -->
         <rect x="45" y="45" width="30" height="30" rx="3" fill="#0D0F12"/>
-        <text x="60" y="64" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#9C8067" font-weight="bold">CV</text>
+        <text x="60" y="64" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#9C8067" font-weight="bold">Vinde</text>
     </svg>`;
     container.innerHTML = svg;
 }
