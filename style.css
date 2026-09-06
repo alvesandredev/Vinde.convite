@@ -311,32 +311,40 @@ body::before {
 /* Selo de Cera / Monograma */
 .envelope-wax-seal {
     position: absolute;
+
     top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     width: 52px;
     height: 52px;
+
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #A6886D 0%, #735B46 70%, #4A392B 100%);
-    border: 1px solid rgba(244, 241, 234, 0.35);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.75), inset 0 2px 5px rgba(255, 255, 255, 0.25);
+    overflow: hidden;
+
+    background-image: url("Imagens/Foto.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: none;
+
+   box-shadow:
+    0 0 0 3px rgba(244, 241, 234, 0.30),
+    0 6px 16px rgba(0, 0, 0, 0.75),
+    inset 0 2px 5px rgba(255, 255, 255, 0.671);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 6;
-    font-family: var(--font-serif);
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
-    color: #F4F1EA;
-    font-weight: 600;
-    transition: opacity 0.45s ease, transform 0.45s ease;
-    pointer-events: none;
-}
 
-/* Estados da animação 3D controlados por classes */
-.envelope-box.step-flap-open .envelope-wax-seal {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.75);
+    z-index: 6;
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+
+    pointer-events: none;
 }
 
 .envelope-box.step-flap-open .envelope-flap {
